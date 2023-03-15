@@ -20,5 +20,8 @@ public interface NoteRepository extends JpaRepository<Note, String> {
     @Query("SELECT n FROM Note n WHERE n.user = :user")
     List<Note> findByUser(@Param("user") User user);
 
+//    @Query(nativeQuery = true, value = "SELECT note_id as noteId, user_id, title, content, privacy FROM notes n WHERE n.user_id = :user_id")
+//    List<Note> getAllNotesByUserId(@Param("user_id") Long id);
+
     public List<Note> findAllByUser_Id(long id);
 }
